@@ -24,7 +24,11 @@ function App() {
   const submitform=async()=>{
     try {
       const submitresp=await axios.post("https://parag-assignment1.vercel.app/form",{"typeofquestions":typeofquestions,"inputs":inputs})
-
+      if(submitresp.status)
+      {
+        settypeofquestions([])
+        setinputs([])
+      }
     } catch (error) {
       console.log(error)
     }
